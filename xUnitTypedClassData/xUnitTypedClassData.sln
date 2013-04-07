@@ -1,8 +1,27 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E5A0EE59-47C4-4176-B90F-0BBE1E8D76CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4B26BE99-9A40-46A1-82D8-3C5A6D6F5B76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xunit.extensions.typedclassdata", "src\xunit.extensions.typedclassdata\xunit.extensions.typedclassdata.csproj", "{9560ABB0-C229-4F28-9BCC-77894AC8FCBD}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9560ABB0-C229-4F28-9BCC-77894AC8FCBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9560ABB0-C229-4F28-9BCC-77894AC8FCBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9560ABB0-C229-4F28-9BCC-77894AC8FCBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9560ABB0-C229-4F28-9BCC-77894AC8FCBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9560ABB0-C229-4F28-9BCC-77894AC8FCBD} = {4B26BE99-9A40-46A1-82D8-3C5A6D6F5B76}
 	EndGlobalSection
 EndGlobal
