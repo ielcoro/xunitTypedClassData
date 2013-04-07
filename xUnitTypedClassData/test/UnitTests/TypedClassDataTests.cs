@@ -110,5 +110,15 @@ namespace UnitTests
             Assert.IsType<PassedResult>(testResult);
             Assert.Equal(@"UnitTests.Models.ClassTypeRandomParametersTestModel.ClassTypeTest(bar: ""bar"")", testResult.DisplayName);
         }
+
+        [Fact]
+        public void ShouldThrowWhenMoreParametersThanClassDefinitionAreFound()
+        {
+            MethodResult testResult = RunClass(typeof(ClassTypeTooManyParametersTestModel)).Single();
+            FailedResult failedResult = (FailedResult)testResult;
+
+            Assert.Equal(typeof(InvalidOperationException).FullName, failedResult.ExceptionType);
+            Assert.Equal("System.InvalidOperationException : Expected 3 parameters, got 2 parameters", failedResult.Message);
+        }
     }
 }
