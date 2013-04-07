@@ -7,6 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4B26BE99-9A4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xunit.extensions.typedclassdata", "src\xunit.extensions.typedclassdata\xunit.extensions.typedclassdata.csproj", "{9560ABB0-C229-4F28-9BCC-77894AC8FCBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "test\UnitTests\UnitTests.csproj", "{F699F4C0-B7C2-4E9A-9C65-7676AF6002D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{91B4E333-7BF1-4C4F-921A-EE8998C4772C}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +26,16 @@ Global
 		{9560ABB0-C229-4F28-9BCC-77894AC8FCBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9560ABB0-C229-4F28-9BCC-77894AC8FCBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9560ABB0-C229-4F28-9BCC-77894AC8FCBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F699F4C0-B7C2-4E9A-9C65-7676AF6002D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F699F4C0-B7C2-4E9A-9C65-7676AF6002D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F699F4C0-B7C2-4E9A-9C65-7676AF6002D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F699F4C0-B7C2-4E9A-9C65-7676AF6002D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{F699F4C0-B7C2-4E9A-9C65-7676AF6002D1} = {E5A0EE59-47C4-4176-B90F-0BBE1E8D76CB}
 		{9560ABB0-C229-4F28-9BCC-77894AC8FCBD} = {4B26BE99-9A40-46A1-82D8-3C5A6D6F5B76}
 	EndGlobalSection
 EndGlobal
