@@ -7,21 +7,21 @@ using Xunit.Extensions;
 
 namespace UnitTests.Models
 {
-    public class EnumerableObjectArrayTestModel
+    public class AnonymousTypeAsObjectTestModel
     {
-        [Theory, TypedClassData(typeof(EnumerableObjectArrayData))]
-        public void EnumerableTest(int foo, string bar)
+        [Theory, TypedClassData(typeof(AnonymousTypeAsObjectData))]
+        public void AnonymousTypeTest(object anonymousData)
         {
 
         }
     }
 
-    public class EnumerableObjectArrayData : IEnumerable<object[]>
+    public class AnonymousTypeAsObjectData : IEnumerable<object>
     {
 
-        public IEnumerator<object[]> GetEnumerator()
+        public IEnumerator<object> GetEnumerator()
         {
-            yield return new object[] { 1, "bar" };
+            yield return new { Foo = 1, Bar = "bar" };
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
