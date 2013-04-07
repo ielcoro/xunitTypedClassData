@@ -120,5 +120,14 @@ namespace UnitTests
             Assert.Equal(typeof(InvalidOperationException).FullName, failedResult.ExceptionType);
             Assert.Equal("System.InvalidOperationException : Expected 3 parameters, got 2 parameters", failedResult.Message);
         }
+
+        [Fact]
+        public void ShouldBeAbleToUseIntegralTypes()
+        {
+            MethodResult testResult = RunClass(typeof(IntegralTypeTestModel)).Single();
+
+            Assert.IsType<PassedResult>(testResult);
+            Assert.Equal(@"UnitTests.Models.IntegralTypeTestModel.ClassTypeTest(data: 1)", testResult.DisplayName);
+        }
     }
 }

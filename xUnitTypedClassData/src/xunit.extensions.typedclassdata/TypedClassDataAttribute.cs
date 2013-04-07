@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -20,11 +21,11 @@ namespace Xunit.Extensions
             if (this.Class.GetInterfaces().Contains(typeof(IEnumerable<object[]>)))
                 return base.GetData(methodUnderTest, parameterTypes);
 
-            var classDataProvider = (IEnumerable<object>)Activator.CreateInstance(this.Class);
+            var classDataProvider = (IEnumerable)Activator.CreateInstance(this.Class);
 
             Func<object, object[]> projectionStrategy = null;
 
-            return classDataProvider.Select(data =>
+            return classDataProvider.Cast<object>().Select(data =>
                 {
                     if (projectionStrategy == null)
                         projectionStrategy = DetermineProjectionStrategy(methodUnderTest, data, parameterTypes);
