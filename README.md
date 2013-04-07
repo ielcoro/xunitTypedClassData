@@ -1,7 +1,7 @@
 xunitTypedClassData
 ===================
 
-Typed Class Data Attribute for xUnit Test Framework, allowing to use typed data (classes, structs, anonymous types or dynamic types) as a source for xUnit's data theories.
+Typed Class Data Attribute for xUnit Test Framework, allowing to use typed data (classes, structs, anonymous types or dynamic types) as a source for xUnit's data theories, instead of using untyped object arrays.
 
 Iñaki Elcoro 
 http://ielcoro.azurewebsites.net
