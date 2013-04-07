@@ -93,5 +93,13 @@ namespace UnitTests
             Assert.Equal(@"UnitTests.Models.ClassTypeAsTypedInstanceTestModel.ClassTypeTest(data: UnitTests.Models.FooBar)", testResult.DisplayName);
         }
 
+        [Fact]
+        public void ShouldAllowCaseDiferencesOnParameterInjection()
+        {
+            MethodResult testResult = RunClass(typeof(ClassTypeAsParametersWithCaseDiferencesTestModel)).Single();
+
+            Assert.IsType<PassedResult>(testResult);
+            Assert.Equal(@"UnitTests.Models.ClassTypeAsParametersWithCaseDiferencesTestModel.ClassTypeTest(FOO: 1, bAr: ""bar"")", testResult.DisplayName);
+        }
     }
 }
