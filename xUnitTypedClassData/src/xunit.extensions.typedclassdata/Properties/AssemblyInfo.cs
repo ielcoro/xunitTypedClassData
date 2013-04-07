@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("xunit.extensions.typedclassdata")]
 [assembly: AssemblyDescription("xUnit Extension that allows to use typed classes for data theories")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Pistatxo Team")]
+[assembly: AssemblyCompany("Iñaki Elcoro")]
 [assembly: AssemblyProduct("xUnit Typed Class Data")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("Pistatxo Team")]
