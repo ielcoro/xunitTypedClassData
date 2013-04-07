@@ -101,5 +101,14 @@ namespace UnitTests
             Assert.IsType<PassedResult>(testResult);
             Assert.Equal(@"UnitTests.Models.ClassTypeAsParametersWithCaseDiferencesTestModel.ClassTypeTest(FOO: 1, bAr: ""bar"")", testResult.DisplayName);
         }
+
+        [Fact]
+        public void ShouldAllowInjectionOfRandomParameters()
+        {
+            MethodResult testResult = RunClass(typeof(ClassTypeRandomParametersTestModel)).Single();
+
+            Assert.IsType<PassedResult>(testResult);
+            Assert.Equal(@"UnitTests.Models.ClassTypeRandomParametersTestModel.ClassTypeTest(bar: ""bar"")", testResult.DisplayName);
+        }
     }
 }
