@@ -57,6 +57,7 @@
     <Compile Include="Models\ClassTypeAsParametersWithCaseDiferencesTestModel.cs" />
     <Compile Include="Models\ClassTypeRandomParametersTestModel.cs" />
     <Compile Include="Models\ClassTypeTooManyParametersTestModel.cs" />
+    <Compile Include="Models\StructTypeTestModel.cs" />
     <Compile Include="Models\IntegralTypeTestModel.cs" />
     <Compile Include="Models\EnumerableObjectArrayTestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

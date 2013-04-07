@@ -129,5 +129,14 @@ namespace UnitTests
             Assert.IsType<PassedResult>(testResult);
             Assert.Equal(@"UnitTests.Models.IntegralTypeTestModel.ClassTypeTest(data: 1)", testResult.DisplayName);
         }
+
+        [Fact]
+        public void ShouldBeAbleToInjectStructs()
+        {
+            MethodResult testResult = RunClass(typeof(StructTypeTestModel)).Single();
+
+            Assert.IsType<PassedResult>(testResult);
+            Assert.Equal(@"UnitTests.Models.StructTypeTestModel.ClassTypeTest(classData: UnitTests.Models.FooBarStruct)", testResult.DisplayName);
+        }
     }
 }
