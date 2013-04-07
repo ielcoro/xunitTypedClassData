@@ -28,7 +28,7 @@ namespace Xunit.Extensions
                 {
                     Type dataType = o.GetType();
 
-                    if (parameterTypes.Length == 1 && parameterTypes.Single() == dataType || parameterTypes.Single() == typeof(object))
+                    if (parameterTypes.Length == 1 && (parameterTypes.Single() == dataType || parameterTypes.Single() == typeof(object)))
                         return new[] { o };
 
                     PropertyInfo[] properties = dataType.GetProperties();

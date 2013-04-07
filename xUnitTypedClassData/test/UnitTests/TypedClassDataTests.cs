@@ -39,5 +39,14 @@ namespace UnitTests
             Assert.Equal(@"UnitTests.Models.AnonymousTypeAsObjectTestModel.AnonymousTypeTest(anonymousData: { Foo = 1, Bar = bar })", testResult.DisplayName);
         }
 
+        [Fact]
+        public void ShouldBeAbleToInjectAnonymousTypeAsParameters()
+        {
+            MethodResult testResult = RunClass(typeof(AnonymousTypeAsParametersTestModel)).Single();
+
+            Assert.IsType<PassedResult>(testResult);
+            Assert.Equal(@"UnitTests.Models.AnonymousTypeAsParametersTestModel.AnonymousTypeTest(foo: 1, bar: ""bar"")", testResult.DisplayName);
+        }
+
     }
 }

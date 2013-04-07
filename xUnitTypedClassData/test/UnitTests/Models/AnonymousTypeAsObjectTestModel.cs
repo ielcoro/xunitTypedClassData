@@ -9,14 +9,14 @@ namespace UnitTests.Models
 {
     public class AnonymousTypeAsObjectTestModel
     {
-        [Theory, TypedClassData(typeof(AnonymousTypeAsObjectData))]
+        [Theory, TypedClassData(typeof(AnonymousTypeData))]
         public void AnonymousTypeTest(object anonymousData)
         {
 
         }
     }
 
-    public class AnonymousTypeAsObjectData : IEnumerable<object>
+    public class AnonymousTypeData : IEnumerable<object>
     {
 
         public IEnumerator<object> GetEnumerator()
