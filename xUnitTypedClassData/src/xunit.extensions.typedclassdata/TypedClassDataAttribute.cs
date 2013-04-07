@@ -22,23 +22,47 @@ namespace Xunit.Extensions
 
             var classDataProvider = (IEnumerable<object>)Activator.CreateInstance(this.Class);
 
-            ParameterInfo[] targetParameters = methodUnderTest.GetParameters();
+            Func<object, object[]> projectionStrategy = null;
 
-            return classDataProvider.Select(o =>
+            return classDataProvider.Select(data =>
                 {
-                    Type dataType = o.GetType();
+                    if (projectionStrategy == null)
+                        projectionStrategy = DetermineProjectionStrategy(methodUnderTest, data, parameterTypes);
 
-                    if (parameterTypes.Length == 1 && (parameterTypes.Single() == dataType || parameterTypes.Single() == typeof(object)))
-                        return new[] { o };
-
-                    PropertyInfo[] properties = dataType.GetProperties();
-
-                    return (from t in targetParameters
-                            from p in properties
-                            where t.Name.Equals(p.Name, StringComparison.CurrentCultureIgnoreCase) &&
-                                  t.ParameterType == p.PropertyType
-                            select p.GetValue(o)).ToArray();
+                    return projectionStrategy(data);
                 });
+        }
+
+        private Func<object, object[]> DetermineProjectionStrategy(MethodInfo methodUnderTest, object sampleData, Type[] parameterTypes)
+        {
+            Func<object, object[]> projectionStrategy = null;
+
+            Type dataType = sampleData.GetType();
+
+            if (IsSingleParameterTargetStrategy(dataType, parameterTypes, out projectionStrategy))
+                return projectionStrategy;
+
+            return CreateParameterExpansionTargetStrategy(methodUnderTest, dataType);
+        }
+
+        private bool IsSingleParameterTargetStrategy(Type dataType, Type[] parameterTypes, out Func<object, object[]> strategy)
+        {
+            strategy = (data) => new[] { data };
+
+            return parameterTypes.Length == 1 && 
+                   (parameterTypes.Single() == dataType || parameterTypes.Single() == typeof(object));
+        }
+
+        private Func<object, object[]> CreateParameterExpansionTargetStrategy(MethodInfo methodUnderTest, Type dataType)
+        {
+            ParameterInfo[] targetParameters = methodUnderTest.GetParameters();
+            PropertyInfo[] properties = dataType.GetProperties();
+
+            return (data) => (from t in targetParameters
+                                  from p in properties
+                                  where t.Name.Equals(p.Name, StringComparison.CurrentCultureIgnoreCase) &&
+                                        t.ParameterType == p.PropertyType
+                                  select p.GetValue(data)).ToArray();
         }
     }
 }
