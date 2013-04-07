@@ -50,6 +50,10 @@
     <Compile Include="Models\AnonymousTypeAsDynamicTestModel.cs" />
     <Compile Include="Models\AnonymousTypeAsObjectTestModel.cs" />
     <Compile Include="Models\AnonymousTypeAsParametersTestModel.cs" />
+    <Compile Include="Models\ClassTypeAsDynamicTestModel.cs" />
+    <Compile Include="Models\ClassTypeAsObjectTestModel.cs" />
+    <Compile Include="Models\ClassTypeAsParametersTestModel.cs" />
+    <Compile Include="Models\ClassTypeAsTypedInstanceTestModel.cs" />
     <Compile Include="Models\EnumerableObjectArrayTestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypedClassDataTests.cs" />

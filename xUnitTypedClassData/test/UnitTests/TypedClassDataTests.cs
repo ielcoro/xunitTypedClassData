@@ -57,5 +57,41 @@ namespace UnitTests
             Assert.Equal(@"UnitTests.Models.AnonymousTypeAsParametersTestModel.AnonymousTypeTest(foo: 1, bar: ""bar"")", testResult.DisplayName);
         }
 
+        [Fact]
+        public void ShouldBeAbleToInjectClassTypeAsObject()
+        {
+            MethodResult testResult = RunClass(typeof(ClassTypeAsObjectTestModel)).Single();
+
+            Assert.IsType<PassedResult>(testResult);
+            Assert.Equal(@"UnitTests.Models.ClassTypeAsObjectTestModel.ClassTypeTest(classData: UnitTests.Models.FooBar)", testResult.DisplayName);
+        }
+
+        [Fact]
+        public void ShouldBeAbleToInjectClassTypeAsDynamic()
+        {
+            MethodResult testResult = RunClass(typeof(ClassTypeAsDynamicTestModel)).Single();
+
+            Assert.IsType<PassedResult>(testResult);
+            Assert.Equal(@"UnitTests.Models.ClassTypeAsDynamicTestModel.ClassTypeTest(dynamicData: UnitTests.Models.FooBar)", testResult.DisplayName);
+        }
+
+        [Fact]
+        public void ShouldBeAbleToInjectClassTypeAsParameters()
+        {
+            MethodResult testResult = RunClass(typeof(ClassTypeAsParametersTestModel)).Single();
+
+            Assert.IsType<PassedResult>(testResult);
+            Assert.Equal(@"UnitTests.Models.ClassTypeAsParametersTestModel.ClassTypeTest(foo: 1, bar: ""bar"")", testResult.DisplayName);
+        }
+
+        [Fact]
+        public void ShouldBeAbleToInjectClassTypeAsTypedInstance()
+        {
+            MethodResult testResult = RunClass(typeof(ClassTypeAsTypedInstanceTestModel)).Single();
+
+            Assert.IsType<PassedResult>(testResult);
+            Assert.Equal(@"UnitTests.Models.ClassTypeAsTypedInstanceTestModel.ClassTypeTest(data: UnitTests.Models.FooBar)", testResult.DisplayName);
+        }
+
     }
 }
