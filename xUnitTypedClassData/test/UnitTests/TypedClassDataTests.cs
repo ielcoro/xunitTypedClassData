@@ -40,6 +40,15 @@ namespace UnitTests
         }
 
         [Fact]
+        public void ShouldBeAbleToInjectAnonymousTypeAsDynamic()
+        {
+            MethodResult testResult = RunClass(typeof(AnonymousTypeAsDynamicTestModel)).Single();
+
+            Assert.IsType<PassedResult>(testResult);
+            Assert.Equal(@"UnitTests.Models.AnonymousTypeAsDynamicTestModel.AnonymousTypeTest(dynamicData: { Foo = 1, Bar = bar })", testResult.DisplayName);
+        }
+
+        [Fact]
         public void ShouldBeAbleToInjectAnonymousTypeAsParameters()
         {
             MethodResult testResult = RunClass(typeof(AnonymousTypeAsParametersTestModel)).Single();

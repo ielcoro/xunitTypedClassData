@@ -47,6 +47,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AnonymousTypeAsDynamicTestModel.cs" />
     <Compile Include="Models\AnonymousTypeAsObjectTestModel.cs" />
     <Compile Include="Models\AnonymousTypeAsParametersTestModel.cs" />
     <Compile Include="Models\EnumerableObjectArrayTestModel.cs" />
