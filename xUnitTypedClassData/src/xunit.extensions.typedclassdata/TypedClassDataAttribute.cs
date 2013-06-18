@@ -63,7 +63,7 @@ namespace Xunit.Extensions
                                   from p in properties
                                   where t.Name.Equals(p.Name, StringComparison.CurrentCultureIgnoreCase) &&
                                         t.ParameterType == p.PropertyType
-                                  select p.GetValue(data)).ToArray();
+                                  select p.GetValue(data, null)).ToArray();
         }
     }
 }
